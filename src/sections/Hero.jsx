@@ -1,60 +1,79 @@
-import Projects from "./Projects";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
     <section
-      className="min-h-screen flex items-center justify-center relative overflow-hidden
-                 bg-gradient-to-br from-blue-50 via-green-50 to-orange-50"
+      id="home"
+      className="relative min-h-screen flex items-center justify-center
+                 bg-[#0b0f1a] overflow-hidden"
     >
-      {/* subtle decorative elements */}
-      <div className="absolute top-10 left-10 w-72 h-72 
-                      bg-blue-200 rounded-full blur-3xl opacity-40"></div>
+      
+      <div className="absolute top-24 left-24 w-72 h-72
+                      bg-violet-500/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-24 right-24 w-72 h-72
+                      bg-cyan-500/20 rounded-full blur-3xl" />
 
-      <div className="absolute bottom-10 right-10 w-72 h-72 
-                      bg-orange-200 rounded-full blur-3xl opacity-40"></div>
+      
+      <div className="relative z-10 max-w-3xl px-6 text-center">
 
-      {/* Content */}
-      <div className="relative text-center max-w-2xl px-6">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-slate-800">
-          Hi, I'm{" "}
-          <span className="text-transparent bg-clip-text 
-                           bg-gradient-to-r from-blue-600 to-green-600">
-            Naveen
-          </span>{" "}
-          👋
-        </h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-5xl md:text-6xl font-extrabold text-white leading-tight"
+        >
+          Naveen Kumar
+        </motion.h1>
 
-        <p className="mt-5 text-2xl font-semibold text-blue-600">
-          Full Stack Developer | React | Node.js
-        </p>
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="mt-4 text-2xl md:text-3xl font-semibold
+                     text-transparent bg-clip-text
+                     bg-gradient-to-r from-violet-400 to-fuchsia-400"
+        >
+          Full Stack Developer (MERN)
+        </motion.h2>
 
-        <p className="mt-4 text-lg text-slate-600">
-          I build modern, scalable, and user-friendly web applications
-          with clean design and efficient code.
-        </p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="mt-6 text-lg md:text-xl text-slate-400"
+        >
+          I design and build scalable, user-centric web applications with
+          clean architecture, modern UI, and reliable backend systems.
+        </motion.p>
 
-        <div className="mt-8 flex justify-center gap-6">
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+          className="mt-10 flex justify-center gap-6 flex-wrap"
+        >
+          <a
+            href="#projects"
+            className="px-8 py-3 rounded-xl
+                       font-semibold text-white
+                       bg-gradient-to-r from-violet-500 to-fuchsia-500
+                       shadow-lg shadow-fuchsia-500/30
+                       hover:scale-105 transition"
+          >
+            View Projects
+          </a>
 
-  <a
-    href="#projects"
-    className="px-7 py-3 rounded-full text-lg font-bold text-white
-               bg-gradient-to-r from-blue-600 to-green-600
-               hover:scale-105 transition-transform"
-  >
-    View Projects
-  </a>
-
-  <a
-    href="#contact"
-    className="px-7 py-3 rounded-full text-lg font-bold
-               border-2 border-green-600 text-green-600
-               hover:bg-green-50 transition"
-  >
-    Contact Me
-  </a>
-
-</div>
-
+          <a
+            href="#contact"
+            className="px-8 py-3 rounded-xl
+                       font-semibold text-white
+                       border border-white/20
+                       hover:bg-white/10 transition"
+          >
+            Contact
+          </a>
+        </motion.div>
       </div>
     </section>
   );

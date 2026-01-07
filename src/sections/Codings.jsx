@@ -1,95 +1,97 @@
-export default function Coding() {
-  const profiles = [
-    {
-      name: "LeetCode",
-      username: "naveen_dev",
-      link: "https://leetcode.com/",
-      bg: "from-yellow-100 to-yellow-50",
-      text: "text-yellow-700",
-      border: "border-yellow-300",
-      stat: "300+ Problems Solved",
-      icon: "🧠",
-    },
-    {
-      name: "HackerRank",
-      username: "naveen_dev",
-      link: "https://www.hackerrank.com/",
-      bg: "from-emerald-100 to-emerald-50",
-      text: "text-emerald-700",
-      border: "border-emerald-300",
-      stat: "5★ in Python",
-      icon: "🏆",
-    },
-    {
-      name: "Codeforces",
-      username: "naveen_dev",
-      link: "https://codeforces.com/",
-      bg: "from-sky-100 to-sky-50",
-      text: "text-sky-700",
-      border: "border-sky-300",
-      stat: "Rating: 1200+",
-      icon: "⚔️",
-    },
-  ];
+import { motion } from "framer-motion";
+import { FaGithub } from "react-icons/fa";
 
+
+const profiles = [
+  {
+    name: "GitHub",
+    username: "GaragaNaveenKumar",
+    link: "https://github.com/GaragaNaveenKumar",
+    stat: "Projects, full-stack apps & open-source code",
+    icon: <FaGithub />,
+  },
+  {
+    name: "LeetCode",
+    username: "GaragaNaveenKumar",
+    link: "https://leetcode.com/23a35a0517/",
+    stat: "Knight (2100+) rating,1350+ problems solved",
+    icon: "LC",
+  },
+  {
+    name: "Codeforces",
+    username: "GaragaNaveenKumar",
+    link: "https://codeforces.com/profile/Naveen_30",
+    stat: "Max rating ~1200",
+    icon: "CF",
+  },
+];
+
+export default function Coding() {
   return (
     <section
       id="coding"
-      className="py-24 px-6 bg-gradient-to-br from-slate-50 via-white to-slate-100"
+      className="relative py-28 px-6 bg-[#0b0f1a]"
     >
-      <div className="max-w-6xl mx-auto">
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold text-slate-800">
-            Coding Profiles 👨‍💻
-          </h2>
+   
+      <div className="absolute top-20 left-20 w-72 h-72
+                      bg-violet-500/20 rounded-full blur-3xl" />
 
-          <div className="w-32 h-1 mx-auto mt-3 rounded-full
-                          bg-gradient-to-r from-slate-600 to-slate-400"></div>
+      <div className="relative max-w-6xl mx-auto">
+   
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-extrabold text-center text-white"
+        >
+          Coding Profiles
+        </motion.h2>
 
-          <p className="mt-5 text-lg font-medium text-slate-600 max-w-2xl mx-auto">
-            My competitive programming and problem-solving journey across
-            popular coding platforms.
-          </p>
-        </div>
+        <p className="mt-4 text-center text-slate-400 max-w-2xl mx-auto">
+          Platforms where I actively write code, practice problem solving,
+          and build real-world applications.
+        </p>
 
-        {/* Profiles */}
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="mt-16 grid gap-10 md:grid-cols-3">
           {profiles.map((profile) => (
-            <a
+            <motion.a
               key={profile.name}
               href={profile.link}
               target="_blank"
               rel="noreferrer"
-              className={`block p-8 rounded-3xl border-2 ${profile.border}
-                          bg-gradient-to-br ${profile.bg}
-                          shadow-md hover:shadow-xl
-                          hover:-translate-y-2 transition-all`}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ y: -6 }}
+              className="bg-white/5 backdrop-blur-xl
+                         border border-white/10
+                         rounded-3xl p-8
+                         hover:border-white/20 transition"
             >
-              <div className={`text-5xl mb-4 ${profile.text}`}>
+      
+              <div className="text-3xl font-bold text-white mb-4">
                 {profile.icon}
               </div>
 
-              <h3 className={`text-2xl font-bold ${profile.text}`}>
+              <h3 className="text-2xl font-semibold text-white">
                 {profile.name}
               </h3>
 
-              <p className="mt-2 text-base font-semibold text-slate-700">
+              <p className="mt-2 text-slate-400 text-sm">
                 @{profile.username}
               </p>
 
-              <p className={`mt-4 text-lg font-bold ${profile.text}`}>
+              <p className="mt-6 text-base font-medium text-slate-200">
                 {profile.stat}
               </p>
 
-              <span
-                className={`inline-block mt-6 px-5 py-2 rounded-full
-                            text-sm font-bold ${profile.text}
-                            bg-white/70`}
-              >
+              <span className="inline-block mt-8 text-sm font-semibold
+                               text-fuchsia-400">
                 View Profile →
               </span>
-            </a>
+            </motion.a>
           ))}
         </div>
       </div>

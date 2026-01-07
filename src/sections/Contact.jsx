@@ -1,55 +1,74 @@
+import { motion } from "framer-motion";
+
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 px-6 
-                 bg-gradient-to-br from-violet-50 via-rose-50 to-amber-50"
+      className="relative py-28 px-6 bg-[#0b0f1a]"
     >
-      <div className="max-w-6xl mx-auto">
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold text-violet-700">
-            Contact Me ✉️
-          </h2>
 
-          <div
-            className="w-28 h-1 mx-auto mt-3 rounded-full
-                       bg-gradient-to-r from-rose-600 to-violet-600"
-          ></div>
+      <div className="absolute top-24 right-24 w-72 h-72
+                      bg-cyan-500/20 rounded-full blur-3xl" />
 
-          <p className="mt-5 text-lg font-medium text-rose-700 max-w-2xl mx-auto">
-            Have a question, opportunity, or just want to say hi?  
-            Fill out the form below and I’ll get back to you.
-          </p>
-        </div>
+      <div className="relative max-w-6xl mx-auto">
 
-        {/* Content */}
-        <div className="grid md:grid-cols-2 gap-14 items-center">
-          {/* Left: Info */}
-          <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-amber-700">
+
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-extrabold text-center text-white"
+        >
+          Get In Touch
+        </motion.h2>
+
+        <p className="mt-4 text-center text-slate-400 max-w-2xl mx-auto">
+          Interested in working together, discussing opportunities, or
+          just having a quick chat? Feel free to reach out.
+        </p>
+
+
+        <div className="mt-16 grid md:grid-cols-2 gap-14 items-start">
+
+
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6 text-slate-300"
+          >
+            <h3 className="text-2xl font-bold text-white">
               Let’s Connect
             </h3>
 
-            <p className="text-lg text-violet-700 leading-relaxed">
-              I’m always open to discussing new projects, creative ideas,
-              or opportunities to be part of something meaningful.
+            <p className="text-lg leading-relaxed text-slate-400">
+              I’m always open to discussing new projects, internship
+              opportunities, or full-time roles where I can contribute
+              and grow as a developer.
             </p>
 
-            <div className="space-y-3 text-lg font-semibold">
-              <p className="text-rose-700">📧 email@example.com</p>
-              <p className="text-teal-700">📍 India</p>
-              <p className="text-violet-700">💼 Open to internships & roles</p>
+            <div className="space-y-3 text-base">
+              <p>📧 naveenkumargaraga@gmail.com</p>
+              <p>📍 India</p>
+              <p>💼 Open to internships & entry-level roles</p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right: Form */}
-          <form
-            className="bg-white rounded-3xl shadow-xl p-8 space-y-5"
+ 
+          <motion.form
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             onSubmit={(e) => e.preventDefault()}
+            className="bg-white/5 backdrop-blur-xl
+                       border border-white/10
+                       rounded-3xl p-8 space-y-6"
           >
             <div>
-              <label className="block mb-1 font-semibold text-violet-700">
+              <label className="block mb-2 text-sm font-semibold text-slate-300">
                 Name
               </label>
               <input
@@ -57,14 +76,14 @@ export default function Contact() {
                 required
                 placeholder="Your name"
                 className="w-full px-4 py-3 rounded-xl
-                           border border-violet-200
-                           focus:outline-none focus:ring-2
-                           focus:ring-violet-400"
+                           bg-black/30 text-white
+                           border border-white/10
+                           focus:outline-none focus:border-fuchsia-400"
               />
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-rose-700">
+              <label className="block mb-2 text-sm font-semibold text-slate-300">
                 Email
               </label>
               <input
@@ -72,14 +91,14 @@ export default function Contact() {
                 required
                 placeholder="you@example.com"
                 className="w-full px-4 py-3 rounded-xl
-                           border border-rose-200
-                           focus:outline-none focus:ring-2
-                           focus:ring-rose-400"
+                           bg-black/30 text-white
+                           border border-white/10
+                           focus:outline-none focus:border-fuchsia-400"
               />
             </div>
 
             <div>
-              <label className="block mb-1 font-semibold text-amber-700">
+              <label className="block mb-2 text-sm font-semibold text-slate-300">
                 Message
               </label>
               <textarea
@@ -87,22 +106,22 @@ export default function Contact() {
                 required
                 placeholder="Write your message..."
                 className="w-full px-4 py-3 rounded-xl
-                           border border-amber-200
-                           focus:outline-none focus:ring-2
-                           focus:ring-amber-400"
+                           bg-black/30 text-white
+                           border border-white/10
+                           focus:outline-none focus:border-fuchsia-400"
               ></textarea>
             </div>
 
             <button
               type="submit"
-              className="w-full mt-4 py-3 rounded-xl
-                         text-lg font-bold text-white
-                         bg-gradient-to-r from-violet-600 to-rose-600
+              className="w-full py-3 rounded-xl
+                         font-semibold text-white
+                         bg-gradient-to-r from-violet-500 to-fuchsia-500
                          hover:opacity-90 transition"
             >
               Send Message
             </button>
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>

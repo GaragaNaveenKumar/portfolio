@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function ProjectCard({
   title,
   description,
@@ -7,11 +9,20 @@ export default function ProjectCard({
   tools,
 }) {
   return (
-    <div
-      className="bg-white rounded-3xl overflow-hidden 
-                 shadow-md hover:shadow-2xl 
-                 hover:-translate-y-2 transition-all duration-300"
+    <motion.div
+      whileHover={{ y: -8 }}
+      transition={{ duration: 0.3 }}
+      className="relative rounded-3xl overflow-hidden
+                 bg-white/5 backdrop-blur-xl
+                 border border-white/10
+                 shadow-xl shadow-violet-500/10
+                 hover:shadow-fuchsia-500/20"
     >
+      {/* Glow */}
+      <div className="absolute inset-0 
+                      bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10 
+                      opacity-0 hover:opacity-100 transition" />
+
       {/* Image */}
       <img
         src={image}
@@ -20,12 +31,12 @@ export default function ProjectCard({
       />
 
       {/* Content */}
-      <div className="p-6 space-y-4">
-        <h3 className="text-2xl font-extrabold text-teal-700">
+      <div className="relative p-6 space-y-4">
+        <h3 className="text-2xl font-bold text-white">
           {title}
         </h3>
 
-        <p className="text-rose-700 text-base leading-relaxed">
+        <p className="text-slate-300 text-sm leading-relaxed">
           {description}
         </p>
 
@@ -34,9 +45,10 @@ export default function ProjectCard({
           {tools.map((tool) => (
             <span
               key={tool}
-              className="px-3 py-1 text-sm font-semibold
+              className="px-3 py-1 text-xs font-semibold
                          rounded-full
-                         bg-amber-100 text-amber-700"
+                         bg-white/10 text-slate-200
+                         border border-white/10"
             >
               {tool}
             </span>
@@ -51,8 +63,8 @@ export default function ProjectCard({
             rel="noreferrer"
             className="flex-1 text-center px-4 py-2 rounded-xl
                        font-semibold text-white
-                       bg-gradient-to-r from-cyan-600 to-teal-600
-                       hover:opacity-90 transition"
+                       bg-gradient-to-r from-cyan-500 to-teal-500
+                       hover:scale-105 transition"
           >
             Live
           </a>
@@ -63,13 +75,13 @@ export default function ProjectCard({
             rel="noreferrer"
             className="flex-1 text-center px-4 py-2 rounded-xl
                        font-semibold text-white
-                       bg-gradient-to-r from-violet-600 to-fuchsia-600
-                       hover:opacity-90 transition"
+                       bg-gradient-to-r from-violet-500 to-fuchsia-500
+                       hover:scale-105 transition"
           >
             GitHub
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

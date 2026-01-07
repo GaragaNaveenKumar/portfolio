@@ -1,104 +1,116 @@
+import { motion } from "framer-motion";
+
+const skillGroups = [
+  {
+    title: "Programming Languages",
+    description:
+      "Core languages used for problem-solving and backend development.",
+    skills: [
+      { name: "C++", icon: "devicon-cplusplus-plain" },
+      { name: "Python", icon: "devicon-python-plain" },
+      { name: "Java", icon: "devicon-java-plain" },
+      { name: "JavaScript", icon: "devicon-javascript-plain" },
+    ],
+  },
+  {
+    title: "Frontend Development",
+    description:
+      "Building responsive, accessible, and modern user interfaces.",
+    skills: [
+      { name: "HTML", icon: "devicon-html5-plain" },
+      { name: "CSS", icon: "devicon-css3-plain" },
+      { name: "React", icon: "devicon-react-original" },
+      { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain" },
+    ],
+  },
+  {
+    title: "Backend Development",
+    description:
+      "Designing APIs and scalable server-side applications.",
+    skills: [
+      { name: "Node.js", icon: "devicon-nodejs-plain" },
+      { name: "Express.js", icon: "devicon-express-original" },
+    ],
+  },
+  {
+    title: "Databases & Tools",
+    description:
+      "Data storage and developer tools used in production workflows.",
+    skills: [
+      { name: "MongoDB", icon: "devicon-mongodb-plain" },
+      { name: "PostgreSQL", icon: "devicon-postgresql-plain" },
+      { name: "Git", icon: "devicon-git-plain" },
+      { name: "GitHub", icon: "devicon-github-original" },
+      { name: "Postman", icon: "devicon-postman-plain" },
+      { name: "Vite", icon: "devicon-vitejs-plain" },
+    ],
+  },
+];
+
 export default function Skills() {
   return (
-    <section
-      id="skills"
-      className="py-24 px-6 bg-gradient-to-br from-blue-50 via-green-50 to-orange-50"
-    >
-      <div className="max-w-6xl mx-auto text-center">
-        {/* Heading */}
-       <h2 className="text-4xl font-extrabold text-blue-700">
-    Skills
-  </h2>
+    <section id="skills" className="relative py-28 px-6 bg-[#0b0f1a]">
+      
+      <div className="absolute bottom-24 left-24 w-72 h-72
+                      bg-fuchsia-500/20 rounded-full blur-3xl" />
 
-  {/* underline */}
-  <div className="w-24 h-1 mx-auto mt-3 rounded-full 
-                bg-blue-600"></div>
+      <div className="relative max-w-6xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-extrabold text-center text-white"
+        >
+          Skills
+        </motion.h2>
 
-  {/* description */}
-  <p className="mt-5 text-lg font-medium text-green-700 max-w-2xl mx-auto">
-    A collection of technologies and tools I use to design, develop, 
-    and deliver modern, scalable, and user-friendly applications.
-  </p>
+        <p className="mt-4 text-center text-slate-400 max-w-2xl mx-auto">
+          Technologies and languages I use to build scalable,
+          high-quality software solutions.
+        </p>
 
-        {/* Skills Layout */}
-        <div className="mt-16 space-y-14">
 
-          {/* Frontend */}
-          <div className="bg-gray-50 rounded-3xl shadow-lg p-6">
-            <h3 className="text-3xl font-bold text-blue-600 mb-6">
-              Frontend
-            </h3>
-            <div className="flex flex-wrap gap-4">
-              {["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"].map(skill => (
-                <span
-                  key={skill}
-                  className="px-6 py-2 text-lg font-semibold
-                             rounded-full bg-blue-100 text-blue-700
-                             hover:bg-blue-600 hover:text-white transition"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
+        <div className="mt-16 grid gap-10 md:grid-cols-2">
+          {skillGroups.map((group) => (
+            <motion.div
+              key={group.title}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white/5 backdrop-blur-xl
+                         border border-white/10
+                         rounded-3xl p-8"
+            >
+              <h3 className="text-2xl font-semibold text-white">
+                {group.title}
+              </h3>
 
-          {/* Backend */}
-          <div className="bg-gray-50 rounded-3xl shadow-lg p-6">
-            <h3 className="text-3xl font-bold text-green-600 mb-6">
-              Backend
-            </h3>
-            <div className="flex flex-wrap gap-4">
-              {["Node.js", "Express.js", "REST APIs"].map(skill => (
-                <span
-                  key={skill}
-                  className="px-6 py-2 text-lg font-semibold
-                             rounded-full bg-green-100 text-green-700
-                             hover:bg-green-600 hover:text-white transition"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
+              <p className="mt-2 text-sm text-slate-400">
+                {group.description}
+              </p>
 
-          {/* Database */}
-          <div className="bg-gray-50 rounded-3xl shadow-lg p-6">
-            <h3 className="text-3xl font-bold text-orange-600 mb-6">
-              Database
-            </h3>
-            <div className="flex flex-wrap gap-4">
-              {["MongoDB", "PostgreSQL"].map(skill => (
-                <span
-                  key={skill}
-                  className="px-6 py-2 text-lg font-semibold
-                             rounded-full bg-orange-100 text-orange-700
-                             hover:bg-orange-600 hover:text-white transition"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Tools */}
-          <div className="bg-gray-50 rounded-3xl shadow-lg p-6">
-            <h3 className="text-3xl font-bold text-purple-600 mb-6">
-              Tools
-            </h3>
-            <div className="flex flex-wrap gap-4">
-              {["Git", "GitHub", "Vite", "Postman"].map(skill => (
-                <span
-                  key={skill}
-                  className="px-6 py-2 text-lg font-semibold
-                             rounded-full bg-purple-100 text-purple-700
-                             hover:bg-purple-600 hover:text-white transition"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
+              <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-5">
+                {group.skills.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="flex items-center gap-3
+                               px-4 py-3 rounded-xl
+                               bg-white/10 border border-white/10
+                               hover:bg-white/20 transition"
+                  >
+                    <i
+                      className={`${skill.icon} text-2xl text-white`}
+                    ></i>
+                    <span className="text-sm font-medium text-slate-200">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
