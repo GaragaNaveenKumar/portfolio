@@ -3,8 +3,9 @@ import Layout from "./layout/Layout";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
+import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
-import Codings from "./sections/Codings";
+import Achievements from "./sections/Achievements";
 import Contact from "./sections/Contact";
 
 export default function App() {
@@ -13,8 +14,9 @@ export default function App() {
       <Hero />
       <About />
       <Skills />
+      <Experience />
       <Projects />
-      <Codings />
+      <Achievements />
       <Contact />
     </Layout>
   );

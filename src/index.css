@@ -2,6 +2,119 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --notch: 16px;
+  --notch-sm: 8px;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000000;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Sharp-cut glass: two corners notched, like a HUD panel viewed through screen glass */
+.glass-clip {
+  clip-path: polygon(
+    0 var(--notch),
+    var(--notch) 0,
+    100% 0,
+    100% calc(100% - var(--notch)),
+    calc(100% - var(--notch)) 100%,
+    0 100%
+  );
+}
+
+.glass-clip-sm {
+  clip-path: polygon(
+    0 var(--notch-sm),
+    var(--notch-sm) 0,
+    100% 0,
+    100% calc(100% - var(--notch-sm)),
+    calc(100% - var(--notch-sm)) 100%,
+    0 100%
+  );
+}
+
+.glass-clip-overlay {
+  clip-path: polygon(
+    0 var(--notch),
+    var(--notch) 0,
+    100% 0,
+    100% calc(100% - var(--notch)),
+    calc(100% - var(--notch)) 100%,
+    0 100%
+  );
+}
+
+@layer components {
+  .glass-panel {
+    @apply glass-clip relative bg-white/[0.035] backdrop-blur-xl border border-blue-400/20 rounded-none
+           transition-colors duration-300;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.07),
+      0 0 0 1px rgba(59, 130, 246, 0.05),
+      0 30px 60px -30px rgba(0, 0, 0, 0.9);
+  }
+
+  .glass-panel:hover {
+    border-color: rgba(96, 165, 250, 0.45);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 0 36px -6px rgba(59, 130, 246, 0.45);
+  }
+
+  .glass-btn {
+    @apply glass-clip-sm rounded-none font-semibold text-white transition;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs tracking-[0.3em] uppercase text-blue-300/80;
+  }
+
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600;
+  }
+
+  .section-heading {
+    @apply font-display text-4xl md:text-5xl font-semibold text-center text-white;
+  }
+
+  .data-tag {
+    @apply px-3 py-1 text-[11px] font-mono uppercase tracking-wider
+           text-blue-200 bg-blue-500/10 border border-blue-400/20 rounded-none;
+  }
+}
+
+.perspective-grid {
+  perspective: 1400px;
+}
+
+/* Faint screen-glass scanlines, sits above the page like light hitting glass */
+.screen-glass {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+  opacity: 0.55;
 }

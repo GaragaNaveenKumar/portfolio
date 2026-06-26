@@ -12,6 +12,8 @@
   "dependencies": {
     "@coreui/icons": "^3.0.1",
     "@coreui/icons-react": "^2.3.0",
+    "@react-three/fiber": "^9.0.0",
+    "three": "^0.169.0",
     "framer-motion": "^12.24.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

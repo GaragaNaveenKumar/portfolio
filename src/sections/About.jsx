@@ -4,32 +4,29 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-28 px-6 bg-[#0b0f1a]"
+      className="relative py-28 px-6"
     >
-      {/* subtle glow */}
       <div className="absolute top-24 right-24 w-72 h-72
-                      bg-violet-500/20 rounded-full blur-3xl" />
+                      bg-blue-600/15 rounded-full blur-3xl" />
 
       <div className="relative max-w-6xl mx-auto">
-        
-        {/* Heading */}
+        <p className="eyebrow text-center">Who I Am</p>
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-extrabold text-center text-white"
+          className="mt-2 section-heading"
         >
           About Me
         </motion.h2>
 
         <p className="mt-4 text-center text-slate-400 max-w-2xl mx-auto">
-          A short overview of my background, skills, and interests.
+          Final-year B.Tech CSE student blending full-stack engineering with
+          a growing focus on agentic AI.
         </p>
 
-        {/* Content */}
         <div className="mt-16 grid md:grid-cols-2 gap-14 items-start">
-
           {/* Left: Description */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -39,33 +36,46 @@ export default function About() {
             className="space-y-6 text-lg leading-relaxed text-slate-300"
           >
             <p>
-              I’m <span className="text-white font-semibold">Naveen</span>, a
-              <span className="text-fuchsia-400 font-semibold">
-                {" "}Full Stack Developer
+              I'm <span className="text-white font-semibold">Naveen</span>, a
+              final-year{" "}
+              <span className="text-blue-300 font-semibold">
+                Computer Science
               </span>{" "}
-              with a strong interest in building scalable, high-quality web
-              applications.
+              student at Pragati Engineering College, building scalable,
+              production-style web applications with the{" "}
+              <span className="text-white font-semibold">MERN stack</span>.
             </p>
 
             <p>
-              My primary focus is on the{" "}
+              I'm currently going deeper into{" "}
               <span className="text-white font-semibold">
-                MERN stack
-              </span>, where I enjoy working across both frontend and backend
-              to deliver complete, production-ready solutions.
+                Agentic AI
+              </span>{" "}
+              — learning LangChain and LangGraph to build agents with tool
+              use, memory, and multi-step reasoning, and studying{" "}
+              <span className="text-white font-semibold">
+                Retrieval-Augmented Generation (RAG)
+              </span>{" "}
+              pipelines to connect LLMs with external knowledge sources.
             </p>
 
             <p>
               I actively practice{" "}
               <span className="text-white font-semibold">
                 data structures, algorithms, and system design fundamentals
+              </span>
+              , which shows up in my{" "}
+              <span className="text-white font-semibold">
+                Top 1% LeetCode
               </span>{" "}
-              to improve my problem-solving ability and write efficient code.
+              ranking with 1,500+ problems solved and a 2,100+ contest
+              rating.
             </p>
 
             <p>
-              I’m driven by curiosity, continuous learning, and the desire to
-              work on meaningful products that create real impact.
+              I'm driven by curiosity and continuous learning, and I'm
+              actively looking for SDE and internship opportunities where I
+              can contribute to meaningful, real-world products.
             </p>
           </motion.div>
 
@@ -75,20 +85,19 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white/5 backdrop-blur-xl
-                       border border-white/10
-                       rounded-3xl p-8"
+            className="glass-panel p-8"
           >
-            <h3 className="text-2xl font-bold text-white mb-6">
+            <h3 className="font-display text-2xl font-bold text-white mb-6">
               Key Highlights
             </h3>
 
             <ul className="space-y-4 text-slate-300 text-base">
-              <li>• Experience building full-stack MERN applications</li>
-              <li>• Strong foundation in JavaScript & React</li>
-              <li>• Regular DSA and problem-solving practice</li>
-              <li>• Comfortable working in collaborative environments</li>
-              <li>• Actively seeking SDE / Internship opportunities</li>
+              <li>• B.Tech CSE — CGPA 8.33/10, Pragati Engineering College</li>
+              <li>• Shipped full-stack MERN apps: MealCart, civic-tech reporting platform</li>
+              <li>• Building AI agents with LangChain, LangGraph &amp; RAG basics</li>
+              <li>• Open-source contributor — GirlScript Summer of Code 2025</li>
+              <li>• Top 1% on LeetCode · 1,500+ problems · 2,100+ rating</li>
+              <li>• Actively seeking SDE / internship opportunities</li>
             </ul>
           </motion.div>
         </div>
